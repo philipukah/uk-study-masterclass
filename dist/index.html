@@ -81,8 +81,8 @@
       letter-spacing: -.12em;
     }
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 25px 0; }
-    .brand { display: flex; align-items: center; gap: 12px; color: white; text-decoration: none; font-family: "Manrope", sans-serif; font-weight: 800; }
-    .brand-mark { width: 34px; height: 34px; border: 8px solid var(--acid); border-right-color: transparent; border-radius: 5px; transform: rotate(0deg); }
+    .brand { display: inline-flex; align-items: center; min-height: 52px; padding: 8px 14px; border-radius: 12px; background: white; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,.14); }
+    .brand-logo { width: clamp(174px, 19vw, 238px); height: 38px; object-fit: contain; }
     .nav-note { color: #bec5ed; font-size: .86rem; }
     .hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(330px, .8fr); gap: clamp(40px, 6vw, 80px); align-items: start; padding: 54px 0 96px; }
     .event-chip { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 9px 13px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(255,255,255,.08); color: #eef1ff; font-size: .84rem; font-weight: 700; margin-bottom: 24px; }
@@ -103,10 +103,10 @@
     .privacy { margin: 12px 0 0; text-align: center; color: #7a7f93; font-size: .73rem; line-height: 1.45; }
     .form-message { display: none; margin: 14px 0 0; padding: 12px; border-radius: 10px; background: #f1f4ff; color: #31385e; font-size: .8rem; line-height: 1.5; }
 
-    .count-wrap { border-top: 1px solid rgba(255,255,255,.14); padding: 25px 0 29px; }
+    .count-wrap { margin-top: 18px; padding: 15px 18px; border: 1px solid rgba(255,255,255,.16); border-radius: 18px; background: rgba(255,255,255,.055); }
     .count-grid { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; }
-    .count-title { margin: 0; color: #cfd4ef; font-size: .86rem; font-weight: 600; }
-    .count-title strong { display: block; color: white; font: 700 1.06rem/1.4 "Manrope"; }
+    .count-title { margin: 0; color: white; font: 800 clamp(1.3rem, 2.2vw, 1.8rem)/1.2 "Manrope"; letter-spacing: -.02em; }
+    .count-title strong { display: block; margin-top: 4px; color: #cfd4ef; font: 600 .9rem/1.4 "DM Sans"; letter-spacing: 0; }
     .timer { display: flex; gap: 9px; }
     .timebox { min-width: 72px; padding: 9px 8px; text-align: center; border: 1px solid rgba(255,255,255,.18); border-radius: 13px; background: rgba(255,255,255,.07); }
     .timebox b { display: block; font: 800 1.55rem/1 "Manrope"; }
@@ -152,6 +152,28 @@
     blockquote { margin: 34px 0 0; padding: 28px 0 0 28px; border-top: 1px solid var(--line); border-left: 4px solid var(--acid); font: 600 1.2rem/1.55 "Manrope"; }
     blockquote cite { display: block; margin-top: 12px; color: var(--muted); font: 500 .83rem/1.4 "DM Sans"; }
 
+    .social-proof { background: var(--paper); }
+    .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .video-card { overflow: hidden; border-radius: 20px; background: white; border: 1px solid var(--line); box-shadow: 0 16px 40px rgba(11,16,63,.08); }
+    .video-thumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--navy); }
+    .video-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+    .video-thumb:hover img { transform: scale(1.035); }
+    .play { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: var(--acid); color: var(--navy); font-size: 1.2rem; box-shadow: 0 8px 24px rgba(0,0,0,.28); }
+    .video-copy { padding: 19px 20px 22px; }
+    .video-copy p { margin: 0 0 6px; color: #7a7f93; font-size: .76rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .video-copy h3 { margin-bottom: 0; font-size: 1.02rem; letter-spacing: -.015em; }
+    .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
+    .quote-card { min-height: 220px; padding: 26px; border-radius: 20px; background: var(--navy); color: white; }
+    .stars { color: var(--acid); letter-spacing: .12em; font-size: .78rem; }
+    .quote-card p { margin: 28px 0 20px; font: 600 1rem/1.55 "Manrope"; }
+    .quote-card strong { color: #cbd0ef; font-size: .8rem; }
+    .proof-source { margin: 24px 0 0; color: var(--muted); font-size: .8rem; text-align: center; }
+    .proof-source a { font-weight: 700; }
+
+    .badge-row { display: flex; align-items: center; gap: 18px; margin-top: 28px; }
+    .badge-row img { width: 106px; border-radius: 10px; box-shadow: 0 10px 30px rgba(11,16,63,.14); }
+    .badge-row span { color: var(--muted); font-size: .86rem; max-width: 270px; }
+
     .outcomes { background: #eaf2ff; }
     .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .outcome { min-height: 220px; padding: 26px; border-radius: 20px; background: white; border: 1px solid rgba(11,16,63,.09); }
@@ -185,8 +207,9 @@
       .proof-grid { grid-template-columns: repeat(3, 1fr); }
       .proof-intro { grid-column: 1 / -1; padding: 22px 0 10px; border-right: 0; }
       .proof-item { padding: 20px; }
-      .days, .outcome-grid { grid-template-columns: 1fr 1fr; }
+      .days, .outcome-grid, .video-grid, .quotes { grid-template-columns: 1fr 1fr; }
       .outcome-grid .outcome:last-child { grid-column: 1 / -1; }
+      .video-grid .video-card:last-child, .quotes .quote-card:last-child { grid-column: 1 / -1; }
       .faq-grid { gap: 24px; }
     }
     @media (max-width: 640px) {
@@ -209,8 +232,9 @@
       .proof-item { border-right: 0; border-top: 1px solid var(--line); padding: 18px 0; }
       section { padding: 76px 0; }
       .section-head { margin-bottom: 36px; }
-      .days, .outcome-grid, .credentials { grid-template-columns: 1fr; }
+      .days, .outcome-grid, .credentials, .video-grid, .quotes { grid-template-columns: 1fr; }
       .outcome-grid .outcome:last-child { grid-column: auto; }
+      .video-grid .video-card:last-child, .quotes .quote-card:last-child { grid-column: auto; }
       .day { padding: 26px 22px; min-height: 0; }
       .portrait-wrap { width: calc(100% - 18px); }
       .stamp { width: 124px; height: 124px; right: -20px; font-size: .62rem; }
@@ -224,18 +248,30 @@
   </style>
 </head>
 <body>
-  <div class="topbar">Free 2-Day Live Masterclass <span>•</span> Fridays &amp; Saturdays <span>•</span> 8:00 PM WAT</div>
+  <div class="topbar">Free 2-Day Live Masterclass <span>•</span> <strong id="topDates">This Friday &amp; Saturday</strong> <span>•</span> 8:00 PM WAT</div>
 
   <header class="hero">
     <div class="wrap">
       <nav class="nav" aria-label="Main navigation">
-        <a class="brand" href="#top" aria-label="Immaculate Nigeria home"><span class="brand-mark" aria-hidden="true"></span> immaculate.ng</a>
+        <a class="brand" href="#top" aria-label="Immaculate Nigeria home"><img class="brand-logo" src="assets/immaculate-logo-cropped.png" alt="immaculate.ng" width="2000" height="538"></a>
         <span class="nav-note">UK study guidance for Nigerians</span>
       </nav>
 
+      <div class="count-wrap" aria-live="polite">
+        <div class="count-grid">
+          <p class="count-title">Class starts in<strong id="nextClassLabel">This Friday at 8:00 PM WAT</strong></p>
+          <div class="timer" aria-label="Time until the live masterclass begins">
+            <div class="timebox"><b id="days">00</b><small>Days</small></div>
+            <div class="timebox"><b id="hours">00</b><small>Hours</small></div>
+            <div class="timebox"><b id="minutes">00</b><small>Mins</small></div>
+            <div class="timebox"><b id="seconds">00</b><small>Secs</small></div>
+          </div>
+        </div>
+      </div>
+
       <div class="hero-grid" id="top">
         <div>
-          <div class="event-chip"><span class="live-dot"></span> Live online · Next class <span id="heroDate">Friday</span></div>
+          <div class="event-chip"><span class="live-dot"></span> Live online · <span id="heroDate">Friday &amp; Saturday</span></div>
           <h1>Plan your UK study journey <span class="accent">without expensive mistakes.</span></h1>
           <p class="lead">Join a practical two-day masterclass for Nigerians who want a credible school application, a stronger visa file, and a clear relocation plan before spending their hard-earned money.</p>
           <div class="trust-line" aria-label="Event highlights">
@@ -257,17 +293,6 @@
         </form>
       </div>
 
-      <div class="count-wrap" aria-live="polite">
-        <div class="count-grid">
-          <p class="count-title">Registration closes when the next class begins<strong id="nextClassLabel">Friday at 8:00 PM WAT</strong></p>
-          <div class="timer" aria-label="Time until the next masterclass">
-            <div class="timebox"><b id="days">00</b><small>Days</small></div>
-            <div class="timebox"><b id="hours">00</b><small>Hours</small></div>
-            <div class="timebox"><b id="minutes">00</b><small>Mins</small></div>
-            <div class="timebox"><b id="seconds">00</b><small>Secs</small></div>
-          </div>
-        </div>
-      </div>
     </div>
   </header>
 
@@ -341,8 +366,39 @@
             <div class="credential">Focused on credible applications and document consistency</div>
             <div class="credential">Nigerian context, explained in practical language</div>
           </div>
+          <div class="badge-row"><img src="assets/british-council-badge.png" alt="British Council UK knowledge trained counsellor badge" width="399" height="501"><span>British Council UK knowledge-trained counsellor credential shown from the supplied campaign materials.</span></div>
           <blockquote>“Moving to the UK is the best thing that ever happened to me and my family. It feels like my life just started.”<cite>Madam Okuma · Essex, UK · March 2023</cite></blockquote>
         </div>
+      </div>
+    </section>
+
+    <section class="social-proof" id="stories">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Real people Real journeys</p>
+          <h2>See what the journey looks like after the application.</h2>
+          <p>These client stories come from Immaculate’s official public testimonial library.</p>
+        </div>
+        <div class="video-grid">
+          <article class="video-card">
+            <a class="video-thumb" href="https://www.youtube.com/watch?v=ahMiLpvtfE4" target="_blank" rel="noopener" aria-label="Watch the UK visa approval story on YouTube"><img src="https://i.ytimg.com/vi/ahMiLpvtfE4/hqdefault.jpg" alt="Video testimonial showing the moment of a UK visa approval" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+            <div class="video-copy"><p>Video story</p><h3>The moment of UK visa approval</h3></div>
+          </article>
+          <article class="video-card">
+            <a class="video-thumb" href="https://www.youtube.com/watch?v=egVOKFvk1pE" target="_blank" rel="noopener" aria-label="Watch Madam Rita's relocation story on YouTube"><img src="https://i.ytimg.com/vi/egVOKFvk1pE/hqdefault.jpg" alt="Madam Rita shares her family's UK relocation story" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+            <div class="video-copy"><p>Family story</p><h3>Madam Rita’s family of five thriving in the UK</h3></div>
+          </article>
+          <article class="video-card">
+            <a class="video-thumb" href="https://www.youtube.com/watch?v=TeZAcxCd2Ns" target="_blank" rel="noopener" aria-label="Watch Chinedu's admission and career story on YouTube"><img src="https://i.ytimg.com/vi/TeZAcxCd2Ns/hqdefault.jpg" alt="Chinedu shares his UK admission and career journey" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
+            <div class="video-copy"><p>Student story</p><h3>Chinedu’s admissions and new career in Leicester</h3></div>
+          </article>
+        </div>
+        <div class="quotes">
+          <article class="quote-card"><span class="stars">★★★★★</span><p>“The profile assessment saved me from wasting millions on an agent who didn’t understand the rules. Very straightforward guidance.”</p><strong>Oluwaseun T.</strong></article>
+          <article class="quote-card"><span class="stars">★★★★★</span><p>“I thought the UK was impossible due to my academic background. Immaculate.ng matched me to an appropriate route successfully.”</p><strong>Dr. Amaka E.</strong></article>
+          <article class="quote-card"><span class="stars">★★★★★</span><p>“Their transparency on the exact proof of funds needed stopped me from making a fatal mistake on my application.”</p><strong>Chinedu M.</strong></article>
+        </div>
+        <p class="proof-source">More verified stories are available on the <a href="https://immaculate.ng/testimonials" target="_blank" rel="noopener">official Immaculate testimonials page</a>. Outcomes depend on each applicant’s profile and documents.</p>
       </div>
     </section>
 
@@ -370,7 +426,7 @@
         <div>
           <details open><summary>Who is this masterclass for?</summary><p>It is for prospective students and families who want clear, practical guidance before applying, paying deposits, preparing funds, or submitting a UK student visa application.</p></details>
           <details><summary>Is it really free?</summary><p>Yes. Registration for the live two-day masterclass is free.</p></details>
-          <details><summary>When does the next class hold?</summary><p>The class runs live on Friday and Saturday at 8:00 PM West Africa Time. The dates on this page update automatically each week.</p></details>
+          <details><summary>When does the class hold?</summary><p id="faqDates">The class holds this Friday and Saturday at 8:00 PM West Africa Time.</p></details>
           <details><summary>Will I receive the joining link?</summary><p>Once the registration form is connected to the campaign system, registered attendees will receive the live link and reminders through the contact details they provide.</p></details>
           <details><summary>Can I ask about my own situation?</summary><p>Yes. The live format includes time for questions, although detailed case reviews may require a separate consultation.</p></details>
         </div>
@@ -422,10 +478,14 @@
     let target = nextFridayAtEight();
     function refreshEventDates() {
       const saturday = new Date(target.getTime() + 24 * 60 * 60 * 1000);
-      document.getElementById("heroDate").textContent = formatEventDate(target);
-      document.getElementById("nextClassLabel").textContent = `${formatEventDate(target)} at 8:00 PM WAT`;
+      const fridayDate = formatEventDate(target);
+      const saturdayDate = formatEventDate(saturday);
+      document.getElementById("topDates").textContent = `${fridayDate} & ${saturdayDate}`;
+      document.getElementById("heroDate").textContent = `${fridayDate} & ${saturdayDate}`;
+      document.getElementById("nextClassLabel").textContent = `${fridayDate} at 8:00 PM WAT`;
       document.getElementById("dayOneDate").textContent = `${formatEventDate(target)} · 8:00 PM WAT`;
       document.getElementById("dayTwoDate").textContent = `${formatEventDate(saturday)} · 8:00 PM WAT`;
+      document.getElementById("faqDates").textContent = `The class holds this Friday, ${fridayDate}, and Saturday, ${saturdayDate}, at 8:00 PM West Africa Time.`;
     }
 
     function updateCountdown() {
