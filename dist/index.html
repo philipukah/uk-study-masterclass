@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UK Study Success Masterclass | Immaculate Nigeria</title>
+  <meta name="description" content="Join Philip Ukah for a free two-day live masterclass on building a credible UK study application, avoiding preventable visa mistakes, and planning your move with confidence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b103f'/%3E%3Cpath d='M17 14h30v9H26v18h21v9H17z' fill='%23d8ff4f'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #0a0d2f;
+      --navy: #0b103f;
+      --navy-2: #12195d;
+      --acid: #d8ff4f;
+      --sky: #55d6ff;
+      --paper: #f6f7fb;
+      --white: #ffffff;
+      --muted: #62677d;
+      --line: #dfe2ee;
+      --shadow: 0 24px 70px rgba(11, 16, 63, .16);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      margin: 0 0 18px; color: #48506f; font: 700 .78rem/1 "Manrope", sans-serif;
+      letter-spacing: .15em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 3px; border-radius: 4px; background: var(--acid); }
+    h1, h2, h3 { font-family: "Manrope", sans-serif; letter-spacing: -.035em; margin-top: 0; }
+    h1 { font-size: clamp(2.7rem, 6.4vw, 5.9rem); line-height: .98; margin-bottom: 24px; }
+    h2 { font-size: clamp(2.1rem, 4vw, 3.7rem); line-height: 1.06; margin-bottom: 22px; }
+    h3 { font-size: 1.35rem; line-height: 1.2; }
+    p { margin-top: 0; }
+    .lead { font-size: clamp(1.05rem, 1.8vw, 1.3rem); line-height: 1.6; color: #d9ddf5; max-width: 720px; }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; min-height: 58px;
+      padding: 0 26px; border: 0; border-radius: 14px; background: var(--acid); color: #11162f;
+      font: 800 .96rem/1 "Manrope", sans-serif; text-decoration: none; cursor: pointer;
+      box-shadow: 0 12px 34px rgba(216,255,79,.22); transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 42px rgba(216,255,79,.32); }
+    .btn:focus-visible, input:focus-visible, summary:focus-visible { outline: 4px solid rgba(85,214,255,.4); outline-offset: 3px; }
+
+    .topbar { background: var(--acid); color: #121532; text-align: center; font-size: .88rem; font-weight: 700; padding: 9px 16px; }
+    .topbar span { opacity: .7; margin: 0 7px; }
+    .hero {
+      position: relative; isolation: isolate; min-height: 850px; color: white;
+      background:
+        radial-gradient(circle at 83% 18%, rgba(85,214,255,.23), transparent 25%),
+        radial-gradient(circle at 12% 82%, rgba(216,255,79,.14), transparent 28%),
+        linear-gradient(145deg, #080b31 0%, #11195b 68%, #151b60 100%);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: -1; opacity: .14;
+      background-image: linear-gradient(rgba(255,255,255,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.13) 1px, transparent 1px);
+      background-size: 60px 60px; mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+    .hero::after {
+      content: "UK"; position: absolute; right: -3vw; top: 72px; z-index: -1;
+      font: 800 clamp(13rem, 32vw, 31rem)/1 "Manrope", sans-serif; color: rgba(255,255,255,.025);
+      letter-spacing: -.12em;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 25px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; color: white; text-decoration: none; font-family: "Manrope", sans-serif; font-weight: 800; }
+    .brand-mark { width: 34px; height: 34px; border: 8px solid var(--acid); border-right-color: transparent; border-radius: 5px; transform: rotate(0deg); }
+    .nav-note { color: #bec5ed; font-size: .86rem; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(330px, .8fr); gap: clamp(40px, 6vw, 80px); align-items: start; padding: 54px 0 96px; }
+    .event-chip { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 9px 13px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(255,255,255,.08); color: #eef1ff; font-size: .84rem; font-weight: 700; margin-bottom: 24px; }
+    .live-dot { width: 9px; height: 9px; border-radius: 50%; background: #ff5c7a; box-shadow: 0 0 0 6px rgba(255,92,122,.13); }
+    .accent { color: var(--acid); }
+    .trust-line { display: flex; flex-wrap: wrap; gap: 13px 24px; margin-top: 26px; color: #cad0ef; font-size: .9rem; }
+    .trust-line span { display: flex; align-items: center; gap: 8px; }
+    .check { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--acid); color: var(--navy); font-weight: 900; font-size: .74rem; }
+
+    .registration { position: relative; background: white; color: var(--ink); border-radius: 26px; padding: 28px; box-shadow: var(--shadow); }
+    .registration::before { content: "FREE LIVE CLASS"; position: absolute; right: -10px; top: -14px; padding: 8px 13px; border-radius: 8px; background: var(--acid); color: var(--navy); font: 800 .72rem/1 "Manrope"; letter-spacing: .08em; transform: rotate(2deg); }
+    .registration h3 { font-size: 1.55rem; margin-bottom: 6px; }
+    .form-sub { color: var(--muted); font-size: .91rem; margin-bottom: 18px; }
+    .field { margin-bottom: 13px; }
+    label { display: block; color: #3b4057; font-size: .78rem; font-weight: 700; margin: 0 0 6px 3px; }
+    input { width: 100%; height: 52px; border: 1px solid #d9dcea; border-radius: 12px; padding: 0 14px; color: var(--ink); background: #fbfbfd; }
+    .registration .btn { width: 100%; margin-top: 3px; }
+    .privacy { margin: 12px 0 0; text-align: center; color: #7a7f93; font-size: .73rem; line-height: 1.45; }
+    .form-message { display: none; margin: 14px 0 0; padding: 12px; border-radius: 10px; background: #f1f4ff; color: #31385e; font-size: .8rem; line-height: 1.5; }
+
+    .count-wrap { border-top: 1px solid rgba(255,255,255,.14); padding: 25px 0 29px; }
+    .count-grid { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; }
+    .count-title { margin: 0; color: #cfd4ef; font-size: .86rem; font-weight: 600; }
+    .count-title strong { display: block; color: white; font: 700 1.06rem/1.4 "Manrope"; }
+    .timer { display: flex; gap: 9px; }
+    .timebox { min-width: 72px; padding: 9px 8px; text-align: center; border: 1px solid rgba(255,255,255,.18); border-radius: 13px; background: rgba(255,255,255,.07); }
+    .timebox b { display: block; font: 800 1.55rem/1 "Manrope"; }
+    .timebox small { color: #aeb5d9; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
+
+    .proof-strip { background: white; border-bottom: 1px solid var(--line); }
+    .proof-grid { display: grid; grid-template-columns: 1.15fr repeat(3, 1fr); min-height: 118px; }
+    .proof-intro, .proof-item { display: flex; flex-direction: column; justify-content: center; padding: 24px 30px; border-right: 1px solid var(--line); }
+    .proof-grid > :last-child { border-right: 0; }
+    .proof-intro { padding-left: 0; color: #60657b; font-size: .88rem; }
+    .proof-item strong { font: 800 1.25rem/1.2 "Manrope"; }
+    .proof-item span { color: #74798d; font-size: .78rem; line-height: 1.35; margin-top: 5px; }
+
+    section { padding: 105px 0; }
+    .section-head { max-width: 780px; margin-bottom: 54px; }
+    .section-head p { color: var(--muted); font-size: 1.08rem; max-width: 670px; }
+    .stakes { background: var(--paper); }
+    .stakes-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
+    .concerns { display: grid; gap: 12px; }
+    .concern { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start; padding: 18px; background: white; border: 1px solid var(--line); border-radius: 16px; }
+    .concern .num { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--navy); color: var(--acid); font: 800 .8rem/1 "Manrope"; }
+    .concern p { margin: 5px 0 0; color: var(--muted); font-size: .93rem; line-height: 1.45; }
+
+    .curriculum { background: var(--navy); color: white; position: relative; overflow: hidden; }
+    .curriculum .section-head p { color: #c7ccea; }
+    .days { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .day { position: relative; padding: 34px; min-height: 410px; border-radius: var(--radius); background: #161d61; border: 1px solid rgba(255,255,255,.12); overflow: hidden; }
+    .day::after { content: attr(data-day); position: absolute; right: -5px; bottom: -46px; color: rgba(255,255,255,.04); font: 800 11rem/1 "Manrope"; }
+    .day-tag { display: inline-flex; padding: 7px 10px; border-radius: 8px; background: var(--acid); color: var(--navy); font: 800 .72rem/1 "Manrope"; letter-spacing: .08em; }
+    .day h3 { font-size: clamp(1.7rem, 3vw, 2.5rem); margin: 28px 0 17px; }
+    .lesson { display: flex; gap: 12px; position: relative; z-index: 1; margin-top: 14px; color: #e3e6f7; font-size: .96rem; }
+    .lesson i { flex: 0 0 8px; height: 8px; border-radius: 50%; background: var(--sky); margin-top: 9px; }
+
+    .host { background: white; }
+    .host-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(45px, 8vw, 100px); align-items: center; }
+    .portrait-wrap { position: relative; max-width: 480px; }
+    .portrait-wrap::before { content: ""; position: absolute; inset: 28px -22px -22px 28px; border-radius: 24px; background: var(--acid); }
+    .portrait-wrap img { position: relative; width: 100%; aspect-ratio: .8; object-fit: cover; object-position: center top; border-radius: 24px; }
+    .stamp { position: absolute; right: -30px; bottom: 30px; width: 150px; height: 150px; display: grid; place-items: center; border-radius: 50%; background: var(--navy); color: white; border: 9px solid white; text-align: center; font: 800 .72rem/1.35 "Manrope"; text-transform: uppercase; letter-spacing: .06em; transform: rotate(-7deg); }
+    .host-copy p { color: var(--muted); }
+    .credentials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 30px 0; }
+    .credential { padding: 16px; border-radius: 14px; background: #f4f6fb; font-size: .88rem; font-weight: 700; line-height: 1.4; }
+    blockquote { margin: 34px 0 0; padding: 28px 0 0 28px; border-top: 1px solid var(--line); border-left: 4px solid var(--acid); font: 600 1.2rem/1.55 "Manrope"; }
+    blockquote cite { display: block; margin-top: 12px; color: var(--muted); font: 500 .83rem/1.4 "DM Sans"; }
+
+    .outcomes { background: #eaf2ff; }
+    .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .outcome { min-height: 220px; padding: 26px; border-radius: 20px; background: white; border: 1px solid rgba(11,16,63,.09); }
+    .outcome-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: var(--navy); color: var(--acid); font-weight: 800; margin-bottom: 38px; }
+    .outcome p { color: var(--muted); font-size: .9rem; line-height: 1.5; margin-bottom: 0; }
+
+    .faq { background: white; }
+    .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 75px; align-items: start; }
+    details { border-top: 1px solid var(--line); padding: 21px 0; }
+    details:last-child { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; list-style: none; font: 700 1rem/1.4 "Manrope"; padding-right: 28px; position: relative; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 0; top: -3px; color: var(--navy); font-size: 1.5rem; }
+    details[open] summary::after { content: "–"; }
+    details p { color: var(--muted); font-size: .92rem; margin: 14px 32px 0 0; }
+
+    .closing { padding: 0 0 90px; background: white; }
+    .closing-card { position: relative; overflow: hidden; border-radius: 30px; padding: 64px; background: var(--navy); color: white; }
+    .closing-card::after { content: ""; position: absolute; width: 340px; height: 340px; right: -100px; top: -150px; border: 70px solid var(--acid); border-radius: 50%; opacity: .13; }
+    .closing-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 35px; align-items: center; }
+    .closing h2 { max-width: 720px; margin-bottom: 12px; }
+    .closing p { color: #c7ccea; margin-bottom: 0; }
+    footer { background: #070a29; color: #9da4cc; padding: 30px 0; font-size: .78rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+    .mobile-cta { display: none; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .stakes-grid, .host-grid, .faq-grid { grid-template-columns: 1fr; }
+      .hero-grid { padding-top: 25px; }
+      .registration { max-width: 620px; }
+      .proof-grid { grid-template-columns: repeat(3, 1fr); }
+      .proof-intro { grid-column: 1 / -1; padding: 22px 0 10px; border-right: 0; }
+      .proof-item { padding: 20px; }
+      .days, .outcome-grid { grid-template-columns: 1fr 1fr; }
+      .outcome-grid .outcome:last-child { grid-column: 1 / -1; }
+      .faq-grid { gap: 24px; }
+    }
+    @media (max-width: 640px) {
+      body { font-size: 16px; padding-bottom: 76px; }
+      .wrap { width: min(100% - 28px, 1160px); }
+      .topbar { font-size: .77rem; }
+      .nav { padding: 18px 0; }
+      .nav-note { display: none; }
+      .hero { min-height: auto; }
+      .hero-grid { gap: 34px; padding: 35px 0 64px; }
+      h1 { font-size: clamp(2.8rem, 14.5vw, 4.3rem); }
+      h2 { font-size: 2.25rem; }
+      .registration { padding: 24px 20px; }
+      .count-grid { grid-template-columns: 1fr; }
+      .timer { width: 100%; gap: 5px; }
+      .timebox { flex: 1; min-width: 0; padding: 9px 3px; }
+      .timebox b { font-size: 1.25rem; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof-intro { grid-column: auto; }
+      .proof-item { border-right: 0; border-top: 1px solid var(--line); padding: 18px 0; }
+      section { padding: 76px 0; }
+      .section-head { margin-bottom: 36px; }
+      .days, .outcome-grid, .credentials { grid-template-columns: 1fr; }
+      .outcome-grid .outcome:last-child { grid-column: auto; }
+      .day { padding: 26px 22px; min-height: 0; }
+      .portrait-wrap { width: calc(100% - 18px); }
+      .stamp { width: 124px; height: 124px; right: -20px; font-size: .62rem; }
+      .closing-card { padding: 42px 24px; }
+      .closing-grid { grid-template-columns: 1fr; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      .mobile-cta { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px 14px; background: rgba(7,10,41,.96); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,.1); }
+      .mobile-cta .btn { width: 100%; min-height: 54px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">Free 2-Day Live Masterclass <span>•</span> Fridays &amp; Saturdays <span>•</span> 8:00 PM WAT</div>
+
+  <header class="hero">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Immaculate Nigeria home"><span class="brand-mark" aria-hidden="true"></span> immaculate.ng</a>
+        <span class="nav-note">UK study guidance for Nigerians</span>
+      </nav>
+
+      <div class="hero-grid" id="top">
+        <div>
+          <div class="event-chip"><span class="live-dot"></span> Live online · Next class <span id="heroDate">Friday</span></div>
+          <h1>Plan your UK study journey <span class="accent">without expensive mistakes.</span></h1>
+          <p class="lead">Join a practical two-day masterclass for Nigerians who want a credible school application, a stronger visa file, and a clear relocation plan before spending their hard-earned money.</p>
+          <div class="trust-line" aria-label="Event highlights">
+            <span><i class="check">✓</i> Clear, practical guidance</span>
+            <span><i class="check">✓</i> Live questions answered</span>
+            <span><i class="check">✓</i> Free registration</span>
+          </div>
+        </div>
+
+        <form class="registration" id="leadForm" novalidate>
+          <h3>Reserve your free seat</h3>
+          <p class="form-sub">Enter your details to receive the live class link and reminders.</p>
+          <div class="field"><label for="name">First name</label><input id="name" name="name" autocomplete="given-name" placeholder="Your first name" required></div>
+          <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+          <div class="field"><label for="phone">WhatsApp number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. 0801 234 5678" required></div>
+          <button class="btn" type="submit">Save my free seat</button>
+          <p class="privacy">Your details will only be used for this masterclass and related UK study guidance.</p>
+          <div class="form-message" id="formMessage" role="status"></div>
+        </form>
+      </div>
+
+      <div class="count-wrap" aria-live="polite">
+        <div class="count-grid">
+          <p class="count-title">Registration closes when the next class begins<strong id="nextClassLabel">Friday at 8:00 PM WAT</strong></p>
+          <div class="timer" aria-label="Time until the next masterclass">
+            <div class="timebox"><b id="days">00</b><small>Days</small></div>
+            <div class="timebox"><b id="hours">00</b><small>Hours</small></div>
+            <div class="timebox"><b id="minutes">00</b><small>Mins</small></div>
+            <div class="timebox"><b id="seconds">00</b><small>Secs</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <aside class="proof-strip" aria-label="Host credentials">
+    <div class="wrap proof-grid">
+      <div class="proof-intro">Guidance rooted in real UK study applications—not rumours and forwarded WhatsApp messages.</div>
+      <div class="proof-item"><strong>300+ Nigerians</strong><span>supported on their UK study journey since 2021</span></div>
+      <div class="proof-item"><strong>British Council trained</strong><span>UK knowledge-trained counsellor</span></div>
+      <div class="proof-item"><strong>Live and practical</strong><span>ask questions about your own situation</span></div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="stakes">
+      <div class="wrap stakes-grid">
+        <div>
+          <p class="eyebrow">Why this class matters</p>
+          <h2>A UK visa is only one part of a successful move.</h2>
+          <p>Too many applicants rush into payments, trust unverified advice, or discover a document problem when the deadline is already close. A strong journey starts with the right plan—from course choice and funding to CAS and visa consistency.</p>
+          <p><strong>This masterclass helps you understand what matters before you commit your money.</strong></p>
+        </div>
+        <div class="concerns">
+          <article class="concern"><span class="num">01</span><div><strong>“Will my profile be accepted?”</strong><p>Understand how academic history, study gaps, course choice, and career goals fit together.</p></div></article>
+          <article class="concern"><span class="num">02</span><div><strong>“How do I avoid a visa refusal?”</strong><p>Learn why document accuracy, credible funding, and consistent answers matter more than rumours.</p></div></article>
+          <article class="concern"><span class="num">03</span><div><strong>“Can I really afford the move?”</strong><p>Think beyond tuition and build a realistic plan for funding, relocation, and life after arrival.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="curriculum" id="curriculum">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">The two-day roadmap</p>
+          <h2>From uncertainty to a clear UK study plan.</h2>
+          <p>Each session focuses on the decisions and documents that can make or break the journey.</p>
+        </div>
+        <div class="days">
+          <article class="day" data-day="01">
+            <span class="day-tag" id="dayOneDate">Friday · 8:00 PM WAT</span>
+            <h3>Day One<br>Build the right foundation</h3>
+            <div class="lesson"><i></i><span>Choose a realistic study route for your profile and long-term goals.</span></div>
+            <div class="lesson"><i></i><span>Understand offers, conditions, deposits, and what happens before CAS.</span></div>
+            <div class="lesson"><i></i><span>Plan tuition, proof of funds, and the wider cost of relocating.</span></div>
+            <div class="lesson"><i></i><span>Spot dangerous advice and common study-abroad scams.</span></div>
+          </article>
+          <article class="day" data-day="02">
+            <span class="day-tag" id="dayTwoDate">Saturday · 8:00 PM WAT</span>
+            <h3>Day Two<br>Strengthen your visa file</h3>
+            <div class="lesson"><i></i><span>Know what UKVI and universities actually check—and what they do not.</span></div>
+            <div class="lesson"><i></i><span>Keep your CAS, application, funding story, and documents consistent.</span></div>
+            <div class="lesson"><i></i><span>Prepare for credibility questions in your own words.</span></div>
+            <div class="lesson"><i></i><span>Leave with a practical next-step checklist for your application.</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="host">
+      <div class="wrap host-grid">
+        <div class="portrait-wrap">
+          <img src="assets/philip-ukah.png" alt="Philip Ukah, UK study and immigration expert" width="1080" height="1350">
+          <div class="stamp">Your host<br>Philip Ukah</div>
+        </div>
+        <div class="host-copy">
+          <p class="eyebrow">Meet your host</p>
+          <h2>Guidance from someone who understands the journey.</h2>
+          <p>Philip Ukah is a British Council-trained UK education counsellor who helps Nigerians navigate the practical decisions behind studying and moving to the UK. His approach is direct: give applicants the facts, identify avoidable risks early, and help every student make a decision that fits their real goals.</p>
+          <div class="credentials">
+            <div class="credential">British Council-trained UK knowledge counsellor</div>
+            <div class="credential">More than 300 Nigerians supported since 2021</div>
+            <div class="credential">Focused on credible applications and document consistency</div>
+            <div class="credential">Nigerian context, explained in practical language</div>
+          </div>
+          <blockquote>“Moving to the UK is the best thing that ever happened to me and my family. It feels like my life just started.”<cite>Madam Okuma · Essex, UK · March 2023</cite></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="outcomes">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">What you will leave with</p>
+          <h2>Clarity you can act on immediately.</h2>
+        </div>
+        <div class="outcome-grid">
+          <article class="outcome"><div class="outcome-icon">01</div><h3>A realistic route</h3><p>Know the study, funding, and application path that makes sense for your profile.</p></article>
+          <article class="outcome"><div class="outcome-icon">02</div><h3>A stronger file</h3><p>Understand the consistency checks behind CAS and visa applications.</p></article>
+          <article class="outcome"><div class="outcome-icon">03</div><h3>Your next steps</h3><p>Leave knowing what to prepare, what to verify, and what to do next.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="wrap faq-grid">
+        <div>
+          <p class="eyebrow">Questions</p>
+          <h2>Before you reserve your seat.</h2>
+          <p>This is a live online masterclass created for Nigerians exploring UK study and relocation.</p>
+        </div>
+        <div>
+          <details open><summary>Who is this masterclass for?</summary><p>It is for prospective students and families who want clear, practical guidance before applying, paying deposits, preparing funds, or submitting a UK student visa application.</p></details>
+          <details><summary>Is it really free?</summary><p>Yes. Registration for the live two-day masterclass is free.</p></details>
+          <details><summary>When does the next class hold?</summary><p>The class runs live on Friday and Saturday at 8:00 PM West Africa Time. The dates on this page update automatically each week.</p></details>
+          <details><summary>Will I receive the joining link?</summary><p>Once the registration form is connected to the campaign system, registered attendees will receive the live link and reminders through the contact details they provide.</p></details>
+          <details><summary>Can I ask about my own situation?</summary><p>Yes. The live format includes time for questions, although detailed case reviews may require a separate consultation.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap">
+        <div class="closing-card">
+          <div class="closing-grid">
+            <div><p class="eyebrow">Your next step</p><h2>Do not build your UK journey on guesswork.</h2><p>Reserve your free seat and arrive with your questions.</p></div>
+            <a class="btn" href="#leadForm">Reserve my free seat</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-row"><span>© <span id="year"></span> Immaculate Nigeria</span><span>Educational guidance only. Visa outcomes are decided by the relevant authorities.</span></div></footer>
+  <div class="mobile-cta"><a class="btn" href="#leadForm">Reserve my free seat</a></div>
+
+  <script>
+    const pad = (number) => String(number).padStart(2, "0");
+
+    function nextFridayAtEight() {
+      const now = new Date();
+      const lagosNow = new Date(now.getTime() + 60 * 60 * 1000);
+      const day = lagosNow.getUTCDay();
+      const hour = lagosNow.getUTCHours();
+      let daysAhead = (5 - day + 7) % 7;
+      if (daysAhead === 0 && hour >= 20) daysAhead = 7;
+      return new Date(Date.UTC(
+        lagosNow.getUTCFullYear(),
+        lagosNow.getUTCMonth(),
+        lagosNow.getUTCDate() + daysAhead,
+        19, 0, 0, 0
+      ));
+    }
+
+    function formatEventDate(date, weekday = true) {
+      return new Intl.DateTimeFormat("en-NG", {
+        timeZone: "Africa/Lagos",
+        weekday: weekday ? "long" : undefined,
+        day: "numeric",
+        month: "long"
+      }).format(date);
+    }
+
+    let target = nextFridayAtEight();
+    function refreshEventDates() {
+      const saturday = new Date(target.getTime() + 24 * 60 * 60 * 1000);
+      document.getElementById("heroDate").textContent = formatEventDate(target);
+      document.getElementById("nextClassLabel").textContent = `${formatEventDate(target)} at 8:00 PM WAT`;
+      document.getElementById("dayOneDate").textContent = `${formatEventDate(target)} · 8:00 PM WAT`;
+      document.getElementById("dayTwoDate").textContent = `${formatEventDate(saturday)} · 8:00 PM WAT`;
+    }
+
+    function updateCountdown() {
+      let distance = target.getTime() - Date.now();
+      if (distance <= 0) {
+        target = nextFridayAtEight();
+        refreshEventDates();
+        distance = target.getTime() - Date.now();
+      }
+      const days = Math.floor(distance / 86400000);
+      const hours = Math.floor((distance % 86400000) / 3600000);
+      const minutes = Math.floor((distance % 3600000) / 60000);
+      const seconds = Math.floor((distance % 60000) / 1000);
+      document.getElementById("days").textContent = pad(days);
+      document.getElementById("hours").textContent = pad(hours);
+      document.getElementById("minutes").textContent = pad(minutes);
+      document.getElementById("seconds").textContent = pad(seconds);
+    }
+
+    refreshEventDates();
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("leadForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const message = document.getElementById("formMessage");
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      message.style.display = "block";
+      message.textContent = "Preview mode: your details were validated but not sent. Connect this form to your CRM or registration endpoint before the campaign goes live.";
+    });
+  </script>
+</body>
+</html>
