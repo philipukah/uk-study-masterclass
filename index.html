@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b103f'/%3E%3Cpath d='M17 14h30v9H26v18h21v9H17z' fill='%23d8ff4f'/%3E%3C/svg%3E">
+  <script src="config.js"></script>
   <style>
     :root {
       --ink: #0a0d2f;
@@ -102,6 +103,13 @@
     .registration .btn { width: 100%; margin-top: 3px; }
     .privacy { margin: 12px 0 0; text-align: center; color: #7a7f93; font-size: .73rem; line-height: 1.45; }
     .form-message { display: none; margin: 14px 0 0; padding: 12px; border-radius: 10px; background: #f1f4ff; color: #31385e; font-size: .8rem; line-height: 1.5; }
+    .form-message.error { background: #fff0f2; color: #8b1633; }
+    .form-message.success { background: #eff9e5; color: #244c17; }
+    .consent { display: grid; grid-template-columns: 20px 1fr; gap: 9px; align-items: start; margin: 13px 0 4px; }
+    .consent input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--navy); }
+    .consent label { margin: 0; font-size: .72rem; line-height: 1.45; font-weight: 500; color: #686e84; }
+    .hp-field { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+    .btn[disabled] { cursor: wait; opacity: .72; transform: none; }
 
     .count-wrap { margin-top: 18px; padding: 15px 18px; border: 1px solid rgba(255,255,255,.16); border-radius: 18px; background: rgba(255,255,255,.055); }
     .count-grid { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; }
@@ -287,8 +295,10 @@
           <div class="field"><label for="name">First name</label><input id="name" name="name" autocomplete="given-name" placeholder="Your first name" required></div>
           <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
           <div class="field"><label for="phone">WhatsApp number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. 0801 234 5678" required></div>
+          <div class="hp-field" aria-hidden="true"><label for="company">Company</label><input id="company" name="company" tabindex="-1" autocomplete="off"></div>
+          <div class="consent"><input id="consent" name="consent" type="checkbox" required><label for="consent">I agree to receive registration, class reminder and related UK study guidance emails and WhatsApp updates from Immaculate Nigeria. I can opt out at any time.</label></div>
           <button class="btn" type="submit">Save my free seat</button>
-          <p class="privacy">Your details will only be used for this masterclass and related UK study guidance.</p>
+          <p class="privacy">We use your details only for this masterclass and related UK study guidance. We do not sell your information.</p>
           <div class="form-message" id="formMessage" role="status"></div>
         </form>
       </div>
@@ -449,6 +459,21 @@
   <div class="mobile-cta"><a class="btn" href="#leadForm">Reserve my free seat</a></div>
 
   <script>
+    const siteConfig = window.MASTERCLASS_CONFIG || {};
+    const registrationEndpoint = siteConfig.registrationEndpoint || "api/register.php";
+    const metaPixelId = String(siteConfig.metaPixelId || "").trim();
+
+    if (metaPixelId) {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', metaPixelId);
+      fbq('track', 'PageView');
+      fbq('track', 'ViewContent', { content_name: 'UK Study Success Masterclass' });
+    }
+
     const pad = (number) => String(number).padStart(2, "0");
 
     function nextFridayAtEight() {
@@ -510,7 +535,39 @@
     setInterval(updateCountdown, 1000);
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    document.getElementById("leadForm").addEventListener("submit", (event) => {
+    const leadForm = document.getElementById("leadForm");
+    let formStarted = false;
+    leadForm.addEventListener("input", () => {
+      if (!formStarted) {
+        formStarted = true;
+        if (window.fbq) fbq('trackCustom', 'FormStart', { form_name: 'UK Study Masterclass Registration' });
+      }
+    });
+
+    function getCookie(name) {
+      const found = document.cookie.split('; ').find((row) => row.startsWith(`${name}=`));
+      return found ? found.split('=').slice(1).join('=') : '';
+    }
+
+    function attribution() {
+      const query = new URLSearchParams(window.location.search);
+      const fbclid = query.get('fbclid') || '';
+      const fbc = fbclid ? `fb.1.${Date.now()}.${fbclid}` : getCookie('_fbc');
+      return {
+        utm_source: query.get('utm_source') || '',
+        utm_medium: query.get('utm_medium') || '',
+        utm_campaign: query.get('utm_campaign') || '',
+        utm_content: query.get('utm_content') || '',
+        utm_term: query.get('utm_term') || '',
+        fbclid,
+        fbc,
+        fbp: getCookie('_fbp'),
+        landing_page: window.location.href,
+        referrer: document.referrer
+      };
+    }
+
+    leadForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       const form = event.currentTarget;
       const message = document.getElementById("formMessage");
@@ -518,8 +575,64 @@
         form.reportValidity();
         return;
       }
-      message.style.display = "block";
-      message.textContent = "Preview mode: your details were validated but not sent. Connect this form to your CRM or registration endpoint before the campaign goes live.";
+      const submitButton = form.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = "Saving your seat…";
+      message.className = "form-message";
+      message.style.display = "none";
+
+      const eventId = (window.crypto && crypto.randomUUID)
+        ? crypto.randomUUID()
+        : `reg_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+      const saturday = new Date(target.getTime() + 86400000);
+      const payload = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim().toLowerCase(),
+        phone: form.phone.value.trim(),
+        company: form.company.value,
+        consent: form.consent.checked,
+        consent_at: new Date().toISOString(),
+        registered_at: new Date().toISOString(),
+        event_friday: target.toISOString(),
+        event_saturday: saturday.toISOString(),
+        event_id: eventId,
+        ...attribution()
+      };
+
+      try {
+        const response = await fetch(registrationEndpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) throw new Error(result.message || "We could not save your registration.");
+
+        if (window.fbq) {
+          fbq('track', 'Lead', {
+            content_name: 'UK Study Success Masterclass',
+            status: 'registered'
+          }, { eventID: eventId });
+          fbq('track', 'CompleteRegistration', {
+            content_name: 'UK Study Success Masterclass',
+            status: 'registered'
+          }, { eventID: eventId });
+        }
+        sessionStorage.setItem('masterclass_registration', JSON.stringify({
+          name: payload.name,
+          email: payload.email,
+          event_friday: payload.event_friday,
+          event_saturday: payload.event_saturday,
+          event_id: eventId
+        }));
+        window.location.assign(`thank-you/?event_id=${encodeURIComponent(eventId)}`);
+      } catch (error) {
+        message.className = "form-message error";
+        message.style.display = "block";
+        message.textContent = error.message || "Something went wrong. Please try again.";
+        submitButton.disabled = false;
+        submitButton.textContent = "Save my free seat";
+      }
     });
   </script>
 </body>
