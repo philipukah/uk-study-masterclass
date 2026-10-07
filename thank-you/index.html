@@ -90,7 +90,7 @@
         ttq.load = function (id) { const source = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq._i = ttq._i || {}; ttq._i[id] = []; ttq._i[id]._u = source; ttq._t = ttq._t || {}; ttq._t[id] = +new Date(); ttq._o = ttq._o || {}; ttq._o[id] = {}; const script = d.createElement("script"); script.type = "text/javascript"; script.async = true; script.src = source + "?sdkid=" + id + "&lib=" + t; const first = d.getElementsByTagName("script")[0]; first.parentNode.insertBefore(script, first); };
         ttq.load(tiktokPixelId);
         ttq.page();
-      }(window, document, 'ttq'));
+      }(window, document, 'ttq');
     }
     try {
       const registration = JSON.parse(sessionStorage.getItem('masterclass_registration') || '{}');
