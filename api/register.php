@@ -111,7 +111,7 @@ curl_setopt_array($ch, [
     CURLOPT_TIMEOUT => 15,
     CURLOPT_HTTPHEADER => [
         'Content-Type: application/json',
-        'X-Masterclass-Secret: ' . (string)($config['shared_secret'] ?? ''),
+        'x-make-apikey: ' . (string)($config['make_api_key'] ?? ''),
     ],
     CURLOPT_POSTFIELDS => json_encode($forward, JSON_UNESCAPED_SLASHES),
 ]);

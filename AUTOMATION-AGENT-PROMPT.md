@@ -20,7 +20,7 @@ The current `Composio` data source, ID `1630667418667902`, is an App data source
 Create and activate `IMM Masterclass - Registration Intake`:
 
 1. Use Webhooks → Custom webhook named `imm_masterclass_registration`.
-2. Require `X-Masterclass-Secret` to match a long random secret stored only in Make and Hostinger `api/config.php`.
+2. Require Make webhook API-key authentication. Store the key only in Make and Hostinger `api/config.php`, and send it through the `x-make-apikey` HTTP header.
 3. Normalize email to lowercase and phone to E.164 where possible.
 4. Search the Google Sheet for the same email and `event_friday`; update an existing row or add a new one.
 5. Store: Registered At, First Name, Email, WhatsApp, Event Friday, Event Saturday, Lead Status=`registered`, Reminder Stage=`confirmation_sent`, Last Reminder At, Source, Medium, Campaign, Content, Term, FBCLID, FBP, Event ID, Landing Page, Consent At and Notes.
