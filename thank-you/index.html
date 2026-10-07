@@ -69,6 +69,7 @@
   <script>
     const siteConfig = window.MASTERCLASS_CONFIG || {};
     const pixelId = String(siteConfig.metaPixelId || '').trim();
+    const tiktokPixelId = String(siteConfig.tiktokPixelId || '').trim();
     if (pixelId) {
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -78,6 +79,18 @@
       fbq('init', pixelId);
       fbq('track', 'PageView');
       fbq('trackCustom', 'ThankYouView');
+    }
+    if (tiktokPixelId) {
+      !function (w, d, t) {
+        w.TiktokAnalyticsObject = t;
+        const ttq = w[t] = w[t] || [];
+        ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"];
+        ttq.setAndDefer = function (target, method) { target[method] = function () { target.push([method].concat([].slice.call(arguments, 0))); }; };
+        for (let i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+        ttq.load = function (id) { const source = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq._i = ttq._i || {}; ttq._i[id] = []; ttq._i[id]._u = source; ttq._t = ttq._t || {}; ttq._t[id] = +new Date(); ttq._o = ttq._o || {}; ttq._o[id] = {}; const script = d.createElement("script"); script.type = "text/javascript"; script.async = true; script.src = source + "?sdkid=" + id + "&lib=" + t; const first = d.getElementsByTagName("script")[0]; first.parentNode.insertBefore(script, first); };
+        ttq.load(tiktokPixelId);
+        ttq.page();
+      }(window, document, 'ttq'));
     }
     try {
       const registration = JSON.parse(sessionStorage.getItem('masterclass_registration') || '{}');
@@ -91,6 +104,7 @@
     } catch (_) {}
     document.getElementById('whatsappJoin').addEventListener('click', () => {
       if (window.fbq) fbq('track', 'Contact', { content_name: 'WhatsApp Community Join' });
+      if (window.ttq) ttq.track('Contact', { content_name: 'WhatsApp Community Join' });
     });
   </script>
 </body>
