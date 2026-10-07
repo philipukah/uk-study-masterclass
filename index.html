@@ -178,9 +178,9 @@
     .proof-source { margin: 24px 0 0; color: var(--muted); font-size: .8rem; text-align: center; }
     .proof-source a { font-weight: 700; }
 
-    .badge-row { display: flex; align-items: center; gap: 18px; margin-top: 28px; }
-    .badge-row img { width: 106px; border-radius: 10px; box-shadow: 0 10px 30px rgba(11,16,63,.14); }
-    .badge-row span { color: var(--muted); font-size: .86rem; max-width: 270px; }
+    .badge-row { display: grid; grid-template-columns: minmax(142px, .42fr) 1fr; align-items: center; gap: 28px; margin: 32px 0; padding: 22px 28px; border: 1px solid var(--line); border-radius: 18px; background: #f8f9fd; }
+    .badge-row img { width: min(142px, 100%); justify-self: center; border-radius: 12px; box-shadow: 0 10px 30px rgba(11,16,63,.14); }
+    .badge-row span { color: var(--muted); font-size: .92rem; line-height: 1.55; max-width: none; }
 
     .outcomes { background: #eaf2ff; }
     .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -241,6 +241,8 @@
       section { padding: 76px 0; }
       .section-head { margin-bottom: 36px; }
       .days, .outcome-grid, .credentials, .video-grid, .quotes { grid-template-columns: 1fr; }
+      .badge-row { grid-template-columns: 1fr; gap: 16px; padding: 22px; text-align: center; }
+      .badge-row img { width: 132px; }
       .outcome-grid .outcome:last-child { grid-column: auto; }
       .video-grid .video-card:last-child, .quotes .quote-card:last-child { grid-column: auto; }
       .day { padding: 26px 22px; min-height: 0; }
