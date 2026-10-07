@@ -510,7 +510,7 @@
     setInterval(updateCountdown, 1000);
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    document.getElementById("leadForm").addEventListener("submit", (event) => {
+    document.getElementById("leadForm").addEventListener("submit", async (event) => {
       event.preventDefault();
       const form = event.currentTarget;
       const message = document.getElementById("formMessage");
@@ -518,8 +518,41 @@
         form.reportValidity();
         return;
       }
+      const eventId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : `reg_${Date.now()}`;
+      const target = nextFridayAtEight();
+      const payload = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim().toLowerCase(),
+        phone: form.phone.value.trim(),
+        consent: true,
+        consent_at: new Date().toISOString(),
+        registered_at: new Date().toISOString(),
+        event_friday: target.toISOString(),
+        event_saturday: new Date(target.getTime() + 86400000).toISOString(),
+        event_id: eventId,
+        landing_page: window.location.href,
+        referrer: document.referrer,
+        fbp: document.cookie.match(/(?:^|; )_fbp=([^;]+)/)?.[1] || "",
+        fbc: document.cookie.match(/(?:^|; )_fbc=([^;]+)/)?.[1] || ""
+      };
       message.style.display = "block";
-      message.textContent = "Preview mode: your details were validated but not sent. Connect this form to your CRM or registration endpoint before the campaign goes live.";
+      message.textContent = "Submitting your registration…";
+      try {
+        const response = await fetch("api/register.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) throw new Error(result.message || "We could not complete your registration.");
+        if (window.fbq) {
+          fbq("track", "Lead", { content_name: "UK Study Success Masterclass", status: "registered" }, { eventID: eventId });
+          fbq("track", "CompleteRegistration", { content_name: "UK Study Success Masterclass", status: "registered" }, { eventID: eventId });
+        }
+        window.location.assign(`thank-you/?event_id=${encodeURIComponent(eventId)}`);
+      } catch (error) {
+        message.textContent = error.message || "Something went wrong. Please try again.";
+      }
     });
   </script>
 </body>
