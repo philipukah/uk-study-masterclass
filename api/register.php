@@ -10,6 +10,61 @@ function respond(int $status, array $body): never {
     exit;
 }
 
+function sha256_normalized_email(string $email): string {
+    return hash('sha256', strtolower(trim($email)));
+}
+
+function sha256_normalized_phone(string $phone): string {
+    return hash('sha256', preg_replace('/\D+/', '', trim($phone)));
+}
+
+function send_tiktok_lead(array $config, array $registration, string $eventId, string $clientIp, string $userAgent): void {
+    $accessToken = trim((string)($config['tiktok_events_api_access_token'] ?? ''));
+    $pixelCode = trim((string)($config['tiktok_pixel_code'] ?? ''));
+    if ($accessToken === '' || $pixelCode === '') return;
+
+    $payload = [
+        'event_source' => 'web',
+        'event_source_id' => $pixelCode,
+        'data' => [[
+            'event' => 'Lead',
+            'event_time' => time(),
+            'event_id' => $eventId,
+            'user' => [
+                'email' => sha256_normalized_email((string)$registration['email']),
+                'phone' => sha256_normalized_phone((string)$registration['phone']),
+                'ip' => $clientIp,
+                'user_agent' => $userAgent,
+                'ttclid' => (string)($registration['ttclid'] ?? ''),
+            ],
+            'properties' => [
+                'content_name' => 'UK Study Success Masterclass',
+                'status' => 'registered',
+            ],
+        ]],
+    ];
+
+    $ch = curl_init('https://business-api.tiktok.com/open_api/v1.3/event/track/');
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 10,
+        CURLOPT_HTTPHEADER => [
+            'Content-Type: application/json',
+            'Access-Token: ' . $accessToken,
+        ],
+        CURLOPT_POSTFIELDS => json_encode($payload, JSON_UNESCAPED_SLASHES),
+    ]);
+    $result = curl_exec($ch);
+    $status = (int)curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+    $error = curl_error($ch);
+    curl_close($ch);
+
+    if ($result === false || $status < 200 || $status >= 300) {
+        error_log('TikTok Events API failure: HTTP ' . $status . ' ' . $error);
+    }
+}
+
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     header('Allow: POST');
     respond(405, ['ok' => false, 'message' => 'Method not allowed.']);
@@ -126,5 +181,7 @@ if ($result === false || $status < 200 || $status >= 300) {
     error_log('Masterclass webhook failure: HTTP ' . $status . ' ' . $error);
     respond(502, ['ok' => false, 'message' => 'We could not complete your registration. Please try again.']);
 }
+
+send_tiktok_lead($config, $forward, $eventId, $clientIp, substr((string)($_SERVER['HTTP_USER_AGENT'] ?? ''), 0, 500));
 
 respond(200, ['ok' => true, 'event_id' => $eventId]);

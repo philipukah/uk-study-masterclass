@@ -4,4 +4,6 @@ return [
     'make_webhook_url' => 'https://hook.eu1.make.com/REPLACE_WITH_YOUR_WEBHOOK',
     'allowed_origin' => 'https://app.immaculate.ng',
     'make_api_key' => 'REPLACE_WITH_THE_MAKE_WEBHOOK_API_KEY',
+    'tiktok_pixel_code' => 'DB3661BC77UEAUE9PU5G',
+    'tiktok_events_api_access_token' => 'REPLACE_WITH_TIKTOK_EVENTS_API_ACCESS_TOKEN',
 ];

@@ -637,9 +637,8 @@
         if (window.ttq) {
           ttq.track('Lead', {
             content_name: 'UK Study Success Masterclass',
-            status: 'registered',
-            event_id: eventId
-          });
+            status: 'registered'
+          }, { event_id: eventId });
         }
         sessionStorage.setItem('masterclass_registration', JSON.stringify({
           name: payload.name,
