@@ -149,10 +149,10 @@
     .lesson i { flex: 0 0 8px; height: 8px; border-radius: 50%; background: var(--sky); margin-top: 9px; }
 
     .host { background: white; }
-    .host-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(45px, 8vw, 100px); align-items: center; }
-    .portrait-wrap { position: relative; max-width: 480px; }
+    .host-grid { display: grid; grid-template-columns: 2fr 3fr; gap: clamp(45px, 8vw, 100px); align-items: center; }
+    .portrait-wrap { position: relative; width: 100%; max-width: 520px; }
     .portrait-wrap::before { content: ""; position: absolute; inset: 28px -22px -22px 28px; border-radius: 24px; background: var(--acid); }
-    .portrait-wrap img { position: relative; width: 100%; aspect-ratio: .8; object-fit: cover; object-position: center top; border-radius: 24px; }
+    .portrait-wrap img { position: relative; display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; border-radius: 24px; }
     .stamp { position: absolute; right: -30px; bottom: 30px; width: 150px; height: 150px; display: grid; place-items: center; border-radius: 50%; background: var(--navy); color: white; border: 9px solid white; text-align: center; font: 800 .72rem/1.35 "Manrope"; text-transform: uppercase; letter-spacing: .06em; transform: rotate(-7deg); }
     .host-copy p { color: var(--muted); }
     .credentials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 30px 0; }
