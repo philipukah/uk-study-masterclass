@@ -178,9 +178,13 @@
     .proof-source { margin: 24px 0 0; color: var(--muted); font-size: .8rem; text-align: center; }
     .proof-source a { font-weight: 700; }
 
-    .badge-row { grid-column: 1 / -1; width: min(100%, 820px); justify-self: center; display: grid; grid-template-columns: 190px 1fr; align-items: center; gap: 32px; margin: 2px 0 0; padding: 24px 34px; border: 1px solid var(--line); border-radius: 18px; background: #f8f9fd; }
-    .badge-row img { width: min(150px, 100%); justify-self: center; border-radius: 12px; box-shadow: 0 10px 30px rgba(11,16,63,.14); }
-    .badge-row span { color: var(--muted); font-size: .95rem; line-height: 1.6; max-width: none; }
+    .badge-row { grid-column: 1 / -1; width: min(100%, 980px); justify-self: center; display: grid; grid-template-columns: 250px minmax(0, 1fr); align-items: center; gap: 42px; margin: 4px 0 0; padding: 28px 40px; border: 1px solid #dbe1ef; border-radius: 20px; background: #f7f9ff; box-shadow: 0 14px 36px rgba(11,16,63,.06); }
+    .badge-image { min-height: 278px; display: grid; place-items: center; padding: 14px; border-radius: 15px; background: #24004c; }
+    .badge-row img { display: block; width: auto; max-width: 100%; height: 250px; max-height: 250px; object-fit: contain; border-radius: 10px; box-shadow: 0 10px 26px rgba(0,0,0,.22); }
+    .badge-copy { display: grid; gap: 10px; }
+    .badge-copy .eyebrow { margin: 0; color: #5d22bc; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .badge-copy strong { color: var(--ink); font-size: clamp(1.25rem, 2.2vw, 1.7rem); line-height: 1.12; }
+    .badge-copy span { color: var(--muted); font-size: .98rem; line-height: 1.65; max-width: 540px; }
 
     .outcomes { background: #eaf2ff; }
     .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -241,8 +245,10 @@
       section { padding: 76px 0; }
       .section-head { margin-bottom: 36px; }
       .days, .outcome-grid, .credentials, .video-grid, .quotes { grid-template-columns: 1fr; }
-      .badge-row { grid-template-columns: 1fr; gap: 16px; padding: 22px; text-align: center; }
-      .badge-row img { width: 132px; }
+      .badge-row { grid-template-columns: 1fr; gap: 20px; padding: 22px; text-align: center; }
+      .badge-image { min-height: 252px; }
+      .badge-row img { height: 224px; max-height: 224px; }
+      .badge-copy { justify-items: center; }
       .outcome-grid .outcome:last-child { grid-column: auto; }
       .video-grid .video-card:last-child, .quotes .quote-card:last-child { grid-column: auto; }
       .day { padding: 26px 22px; min-height: 0; }
@@ -380,7 +386,10 @@
           </div>
           <blockquote>“Moving to the UK is the best thing that ever happened to me and my family. It feels like my life just started.”<cite>Madam Okuma · Essex, UK · March 2023</cite></blockquote>
         </div>
-        <div class="badge-row"><img src="assets/british-council-badge.png" alt="British Council UK knowledge trained counsellor badge" width="399" height="501"><span>British Council UK knowledge-trained counsellor credential shown from the supplied campaign materials.</span></div>
+        <div class="badge-row">
+          <div class="badge-image"><img src="assets/british-council-badge.png" alt="British Council UK knowledge trained counsellor badge" width="399" height="501"></div>
+          <div class="badge-copy"><p class="eyebrow">Verified UK education expertise</p><strong>British Council-trained UK knowledge counsellor</strong><span>This credential is displayed exactly in its original proportions, alongside the expertise that supports families through their UK study journey.</span></div>
+        </div>
       </div>
     </section>
 
