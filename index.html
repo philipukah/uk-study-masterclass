@@ -154,6 +154,11 @@
     .lesson { display: flex; gap: 12px; position: relative; z-index: 1; margin-top: 14px; color: #e3e6f7; font-size: .96rem; }
     .lesson i { flex: 0 0 8px; height: 8px; border-radius: 50%; background: var(--sky); margin-top: 9px; }
 
+    .landing-video { background: #f4f6fb; }
+    .landing-video-grid { display: grid; grid-template-columns: .88fr 1.12fr; gap: clamp(30px, 6vw, 74px); align-items: center; }
+    .landing-video .section-head { margin-bottom: 0; }
+    .landing-video-player { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 22px; background: var(--navy); box-shadow: 0 20px 44px rgba(11,16,63,.18); }
+
     .host { background: white; }
     .host-grid { display: grid; grid-template-columns: 2fr 3fr; gap: clamp(45px, 8vw, 100px); align-items: center; }
     .portrait-wrap { position: relative; width: 100%; max-width: 520px; }
@@ -219,7 +224,7 @@
     .mobile-cta { display: none; }
 
     @media (max-width: 900px) {
-      .hero-grid, .stakes-grid, .host-grid, .faq-grid { grid-template-columns: 1fr; }
+      .hero-grid, .stakes-grid, .landing-video-grid, .host-grid, .faq-grid { grid-template-columns: 1fr; }
       .hero-grid { padding-top: 25px; }
       .registration { max-width: 620px; }
       .proof-grid { grid-template-columns: repeat(3, 1fr); }
@@ -369,6 +374,20 @@
             <div class="lesson"><i></i><span>Leave with a practical next-step checklist for your application.</span></div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="landing-video" aria-labelledby="landing-video-title">
+      <div class="wrap landing-video-grid">
+        <div class="section-head">
+          <p class="eyebrow">A message from Immaculate</p>
+          <h2 id="landing-video-title">Watch before you register.</h2>
+          <p>Hear why a clear, practical plan matters before you make any decision about studying in the UK.</p>
+        </div>
+        <video class="landing-video-player" controls playsinline preload="metadata" aria-label="A message from Immaculate about the UK study journey">
+          <source src="assets/what-to-expect.mp4" type="video/mp4">
+          Your browser does not support this video. Please use the latest version of Chrome, Safari, Edge, or Firefox.
+        </video>
       </div>
     </section>
 
