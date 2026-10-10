@@ -28,10 +28,7 @@
     .btn { display:flex; align-items:center; justify-content:center; min-height:60px; padding:0 24px; border-radius:14px; text-decoration:none; background:#20b75a; color:#fff; font:800 .96rem/1 "Manrope"; box-shadow:0 14px 30px rgba(32,183,90,.24); }
     .small { margin:12px 0 0; text-align:center; color:#7a8094; font-size:.76rem; }
     .side { padding:clamp(28px,5vw,54px); background:var(--paper); display:flex; flex-direction:column; justify-content:center; }
-    .video { aspect-ratio:16/9; border-radius:20px; background:linear-gradient(145deg,var(--navy),var(--navy2)); color:#fff; display:grid; place-items:center; text-align:center; padding:30px; border:1px solid rgba(255,255,255,.12); }
-    .play { width:58px; height:58px; margin:0 auto 15px; display:grid; place-items:center; border-radius:50%; background:var(--acid); color:var(--navy); font-size:1.25rem; }
-    .video strong { display:block; font:800 1.1rem/1.25 "Manrope"; }
-    .video span { display:block; margin-top:8px; color:#cbd1ef; font-size:.84rem; }
+    .video { width:100%; aspect-ratio:16/9; display:block; border:0; border-radius:20px; background:var(--navy); box-shadow:0 16px 34px rgba(11,16,63,.16); }
     .steps { margin-top:28px; }
     .steps h2 { font-size:1.45rem; margin-bottom:15px; }
     .steps ol { margin:0; padding-left:22px; color:#555d78; }
@@ -52,9 +49,7 @@
         <p class="small">WhatsApp is where we will post important class updates. Your email reminders will still arrive separately.</p>
       </section>
       <aside class="side">
-        <div class="video" aria-label="What to expect video placeholder">
-          <div><div class="play">▶</div><strong>Your “what to expect” video will appear here</strong><span>We will add the host’s short welcome video when it is ready.</span></div>
-        </div>
+        <iframe class="video" src="https://www.youtube-nocookie.com/embed/RSEwaxYgCK4" title="What to expect after registering for the masterclass" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <div class="steps">
           <h2>Three things to do now</h2>
           <ol>
