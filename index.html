@@ -492,6 +492,7 @@
   <footer><div class="wrap footer-row"><span>© <span id="year"></span> Immaculate Nigeria</span><span><a href="https://immaculate.ng/privacy">Privacy</a> · Educational guidance only. Visa outcomes are decided by the relevant authorities.</span></div></footer>
   <div class="mobile-cta"><a class="btn" href="#leadForm">Reserve my free seat</a></div>
 
+  <script src="assets/google-attribution.js"></script>
   <script>
     const siteConfig = window.MASTERCLASS_CONFIG || {};
     const registrationEndpoint = siteConfig.registrationEndpoint || "api/register.php";
@@ -607,6 +608,11 @@
         utm_campaign: query.get('utm_campaign') || '',
         utm_content: query.get('utm_content') || '',
         utm_term: query.get('utm_term') || '',
+        ...(window.getMasterclassGoogleAttribution ? window.getMasterclassGoogleAttribution() : {
+          gclid: query.get('gclid') || '',
+          gbraid: query.get('gbraid') || '',
+          wbraid: query.get('wbraid') || ''
+        }),
         fbclid,
         fbc,
         fbp: getCookie('_fbp'),
